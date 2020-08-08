@@ -3,13 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Button, message, Form, Input, Icon  } from 'ant-design-vue';
+import { Button, message, Form, Input, Icon, Layout  } from 'ant-design-vue';
 
 Vue.config.productionTip = false
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(Input)
 Vue.use(Icon)
+Vue.use(Layout)
 
 new Vue({
   router,
