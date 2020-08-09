@@ -79,5 +79,6 @@ export default {
   margin-top: 8px;
   cursor: pointer;
   max-width: 140px;
+  font-size: 12px;
 }
 </style>

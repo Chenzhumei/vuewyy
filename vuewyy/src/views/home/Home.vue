@@ -19,7 +19,7 @@
              </span>
           </div>
           <div class="sheet-list">
-             <single-sheet class="fl" v-for="(sheet,index) in songSheetList" :key="index" :sheet="sheet"></single-sheet>
+             <single-sheet class="fl mb-30" v-for="(sheet,index) in songSheetList" :key="index" :sheet="sheet"></single-sheet>
           </div>
         </div>
         <!-- 个性化推荐 需登录 -->
@@ -134,6 +134,9 @@ export default {
          display: flex;
          flex-wrap: wrap;
          justify-content: space-between;
+         .mb-30 {
+           margin-bottom: 30px;
+         }
        }
     }
     .main-right {
