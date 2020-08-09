@@ -1,0 +1,9 @@
+
+@mixin icon($path, $width, $height) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: url($path) no-repeat;
+    cursor: pointer;
+    overflow: hidden; 
+}

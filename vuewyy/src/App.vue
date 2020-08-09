@@ -24,7 +24,6 @@ export default {
  @import './assets/scss/style';
  .main {
    background-color: #f2f2f2;
-   min-height: 500px;
  }
 
 

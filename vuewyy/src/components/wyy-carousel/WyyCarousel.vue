@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {getBanners} from './../../service/home';
+import {getBanners} from '@service/home';
 
 export default {
    data() {
