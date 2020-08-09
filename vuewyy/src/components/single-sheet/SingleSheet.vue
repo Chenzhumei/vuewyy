@@ -5,7 +5,7 @@
     <div class="bottom">
       <div class="num">
         <i class="icon erji"></i>
-        <span>{{sheet.playCount}}</span>
+        <span>{{sheet.playCount | playCount}}</span>
       </div>
       <i class="icon play"></i>
     </div>
@@ -54,7 +54,8 @@ export default {
         .num {
         span{
             margin-left: 8px;
-            vertical-align: text-bottom;
+            color: #ccc;
+            font-size: 12px;
         }
         }
     .icon {
