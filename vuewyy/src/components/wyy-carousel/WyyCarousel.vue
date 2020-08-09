@@ -55,6 +55,9 @@ export default {
     width: 982px;
     height: 285px;
     margin: 0 auto;
+    .ant-carousel {
+      width: 730px;
+    }
   .custom-slick-arrow {
       position: absolute;
       width: 37px;
@@ -71,7 +74,7 @@ export default {
         left: -50px;
       }
       &.right {
-        right: -50px;
+        right: -305px;
       }
       .arrow-left {
         display: block;
