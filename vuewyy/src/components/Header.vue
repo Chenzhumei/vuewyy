@@ -60,10 +60,6 @@ export default {
 
 <style lang="scss">
  .header {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
     .header-top {
         position: relative;
         height: 70px;
