@@ -39,7 +39,6 @@ export default {
    created() {
      getBanners().then(
        ({data}) => {
-         console.log(data);
          this.banners = data.banners;
        }
      );

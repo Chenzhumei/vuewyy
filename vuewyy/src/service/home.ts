@@ -7,7 +7,7 @@ export function getBanners(){
 
 // 热门歌单分类
 export function getHotTags() {
-    return service.get('playlist/hot').then();
+    return service.get('playlist/hot');
 }
 
 // 推荐歌单
@@ -17,4 +17,23 @@ export function getPerosonalSheetList() {
           limit: 8
         }
       });
+}
+ 
+// 入驻歌手
+interface SingerParams {
+    offset: number;
+    limit: number;
+    cat?: string;
+}
+
+const defaultSingerParams: SingerParams = {
+    offset: 0,
+    limit: 5,
+    cat: '5001'
+};
+
+export function getEnterSinger(args: SingerParams = defaultSingerParams) {
+    return service.get('artist/list', {
+        params: {...args}
+    });
 }

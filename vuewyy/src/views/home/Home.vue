@@ -32,7 +32,21 @@
           </div> -->
         </div>
       </div>
-      <div class="main-right"></div>
+      <div class="main-right">
+         <user-login></user-login>
+         <!-- 入驻歌手 -->
+         <div class="enter-singer">
+           <div class="tit mt-14"><span class="fl">入驻歌手</span> <a class="fr">查看全部 <a-icon type="right"></a-icon></a></div>
+           <div class="singer-wrap">
+            <singer-card class="mt-14" v-for="singer in enterSingers" :key="singer.id" :singer="singer"></singer-card>
+           </div>
+           <div class="apply-btn">
+             <a-button class="btn">申请成为网易音乐人</a-button>
+           </div>
+         </div>
+         <!-- 热门主播 -->
+         <div class="hot-anchor"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,32 +54,42 @@
 <script>
 import wyyCarousel from '@components/wyy-carousel/WyyCarousel';
 import singleSheet from '@components/single-sheet/SingleSheet';
-import { getHotTags, getPerosonalSheetList} from "@service/home";
+import userLogin from './userLogin/UserLogin';
+import singerCard from './singerCard/SingerCard';
+
+import { getHotTags, getPerosonalSheetList, getEnterSinger} from "@service/home";
 export default {
   data() {
     return {
       tags: [],
-      songSheetList: []
+      songSheetList: [],
+      enterSingers: []
     }
   },
   created() {
       getHotTags().then(
-        ({data}) => {
-          this.tags = data.tags.sort((x , y) => {
+        ({data:res}) => {
+          this.tags = res.tags.sort((x , y) => {
             return x.position - y.position
           }).slice(0 , 5);
         }
       );  
       getPerosonalSheetList().then(
-        ({data}) => {
-          this.songSheetList = data.result;
-          console.log(this.songSheetList);
+        ({data:res}) => {
+          this.songSheetList = res.result;
         }
-      )
+      ),
+      getEnterSinger().then(
+        ({data:res}) => {
+          this.enterSingers = res.artists;
+        }
+      );
   },
   components: {
     wyyCarousel,
-    singleSheet
+    singleSheet,
+    userLogin,
+    singerCard
   }
 }
 </script>
@@ -73,15 +97,17 @@ export default {
 <style lang="scss">
 .home {
   .main {
-    width: 985px;
+    width: 980px;
     min-height: 700px;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid #d3d3d3;
     border-width: 0 1px;
+    display: flex;
     .main-left {
-     margin-right: 250px;
+     flex: 1;
      padding: 20px 20px 40px;
+     border-right: 1px solid #d3d3d3;
      .recoment {
        margin-bottom: 30px;
        .r-header {
@@ -140,8 +166,40 @@ export default {
        }
     }
     .main-right {
-      float: right;
       width: 250px;
+      .mt-14 {
+        margin-top: 14px;
+      }
+      .enter-singer {
+        .tit {
+          color: #333;
+          width: 210px;
+          margin: 0 auto;
+          font-size: 12px;
+          height: 40px;
+          line-height:40px;
+          border-bottom: 1px solid #ccc;
+          .fl {
+            font-weight: bold;
+          }
+        }
+       .singer-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+       } 
+       .apply-btn {
+         text-align: center;
+         margin-top: 15px;
+        .btn {
+          color: #333;
+          font-weight: 700;
+          width: 210px;
+          border-collapse: #ccc;
+       }
+       }
+       
+      }
     }
   }
 }
