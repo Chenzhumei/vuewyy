@@ -47,9 +47,33 @@ export default {
     methods: {
         changeNav(tag) {
            this.currentNavTag = tag;
+           switch(tag) {
+               case '发现音乐': 
+                this.$router.push('/discover');
+                break;
+               case '我的音乐':
+                this.$router.push('/my');
+                break;
+               default:
+                 this.$router.push('/discover');
+                 break;
+                    
+           }
         },
          changeSubNav(tag) {
            this.currentSubNavTag = tag;
+           switch(tag) {
+               case '推荐': 
+                this.$router.push('/discover/recomend');
+                break;
+               case '排行榜':
+                this.$router.push('/discover/rank');
+                break;
+               default:
+                 this.$router.push('/discover/recomend');
+                 break;
+                    
+           }
         }
     },
     computed: {
