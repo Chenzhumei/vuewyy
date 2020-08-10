@@ -73,7 +73,7 @@ export default {
                 float: left;
                 width: 176px;
                 height: 69px;
-                background: url('./../assets/images/header/topbar.png') no-repeat 0 9999px;
+                background: url('./../../assets/images/header/topbar.png') no-repeat 0 9999px;
                 background-position: 0 0;
                 a {
                     float: left;
@@ -109,7 +109,7 @@ export default {
                         height: 7px;
                         margin-left: -6px;
                         overflow: hidden;
-                        background: url('./../assets/images/header/topbar.png') no-repeat 0 9999px;
+                        background: url('./../../assets/images/header/topbar.png') no-repeat 0 9999px;
                         background-position: -226px 0;
                    }
                 }

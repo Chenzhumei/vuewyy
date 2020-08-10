@@ -98,7 +98,7 @@ export default {
             .police-logo {
                 width: 14px;
                 height: 14px;
-                background: url('./../assets/images/footer/police.png') no-repeat;
+                background: url('./../../assets/images/footer/police.png') no-repeat;
                 background-size: cover;
                 display: inline-block;
                 margin-right: 2px;
@@ -124,7 +124,7 @@ export default {
                     width: 50px;
                     height: 45px;
                     margin: 0 auto;
-                    background: url('./../assets/images/footer/foot_enter_new.png') no-repeat;
+                    background: url('./../../assets/images/footer/foot_enter_new.png') no-repeat;
                     background-size: 110px 552px;
                     &.logo-amped {
                      background-position: -63px -456.5px;
@@ -147,7 +147,7 @@ export default {
                     margin: 5px 5px 0;
                     width: 52px;
                     height: 14px;
-                    background: url('./../assets/images/footer/foot_enter_tt.png') no-repeat;
+                    background: url('./../../assets/images/footer/foot_enter_tt.png') no-repeat;
                     background-size: 180px 139px;
                     &.tt-amped {
                         background-position: 0 -108px;

@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <wyy-carousel></wyy-carousel>
+  <div class="recoment">
+       <wyy-carousel></wyy-carousel>
     <div class="main">
       <div class="main-left">
         <!-- 热门推荐 -->
@@ -68,7 +68,7 @@ import singleSheet from '@components/single-sheet/SingleSheet';
 import userLogin from './userLogin/UserLogin';
 import singerCard from './singerCard/SingerCard';
 
-import { getHotTags, getPerosonalSheetList, getEnterSinger, getHotDj} from "@service/home";
+import { getHotTags, getPerosonalSheetList, getEnterSinger, getHotDj} from "@service/discover";
 export default {
   data() {
     return {
@@ -114,8 +114,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.home {
+<style lang="scss" scoped>
+.recoment {
   .main {
     width: 980px;
     min-height: 700px;
@@ -134,7 +134,7 @@ export default {
           height: 33px;
           padding: 0 10px 0 34px;
           border-bottom: 2px solid #C10D0C;
-          background: url('./../../assets/images/index.png') no-repeat;
+          background: url('./../../../assets/images/index.png') no-repeat;
           background-position: -225px -156px;
           .hot-recoment {
             float: left;
@@ -169,7 +169,7 @@ export default {
               height: 12px;
               margin-left: 4px;
               vertical-align: middle;
-              background: url('./../../assets/images/index.png') no-repeat;
+              background: url('./../../../assets/images/index.png') no-repeat;
               background-position: 0 -240px;
             }
           }
@@ -262,7 +262,7 @@ export default {
                   display: inline-block;
                   width: 11px;
                   height: 13px;
-                  background: url('./../../assets/images/icon.png') no-repeat;
+                  background: url('./../../../assets/images/icon.png') no-repeat;
                   background-position: 0 1px;
                   font-size: 100%;
                 }

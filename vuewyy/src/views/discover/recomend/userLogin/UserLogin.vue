@@ -19,7 +19,7 @@ export default {
 <style lang='scss' scoped>
  .login-wrap {
      height: 126px;
-     background: url('./../../../assets/images/index.png') no-repeat;
+     background: url('./../../../../assets/images/index.png') no-repeat;
      .note {
         width: 205px;
         margin: 0 auto;
@@ -38,7 +38,7 @@ export default {
         text-shadow: 0 1px 0 #8a060b;
         text-decoration: none;
         margin: 0 auto;
-        background: url('./../../../assets/images/index.png') no-repeat;
+        background: url('./../../../../assets/images/index.png') no-repeat;
         background-position: 0 -195px;
         &:hover {
             text-decoration: none;
