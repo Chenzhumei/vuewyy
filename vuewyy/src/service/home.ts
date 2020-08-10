@@ -37,3 +37,10 @@ export function getEnterSinger(args: SingerParams = defaultSingerParams) {
         params: {...args}
     });
 }
+
+// 热门主播
+export function getHotDj(limit: number = 5) {
+    return service.get('/dj/toplist/popular', {
+        params: {limit}
+    }); 
+}

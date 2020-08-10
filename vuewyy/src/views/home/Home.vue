@@ -36,7 +36,7 @@
          <user-login></user-login>
          <!-- 入驻歌手 -->
          <div class="enter-singer">
-           <div class="tit mt-14"><span class="fl">入驻歌手</span> <a class="fr">查看全部 <a-icon type="right"></a-icon></a></div>
+           <div class="tit"><span class="fl">入驻歌手</span> <a class="fr">查看全部 <a-icon type="right"></a-icon></a></div>
            <div class="singer-wrap">
             <singer-card class="mt-14" v-for="singer in enterSingers" :key="singer.id" :singer="singer"></singer-card>
            </div>
@@ -45,7 +45,18 @@
            </div>
          </div>
          <!-- 热门主播 -->
-         <div class="hot-anchor"></div>
+         <div class="hot-dj">
+          <div class="tit">热门主播</div>
+          <div class="dj-wrap">
+            <div class="dj-card" v-for="dj in hotDj" :key="dj.id">
+                <img class="dj-img" :src="dj.avatarUrl" :alt="dj.nickName">
+                <div class="info">
+                    <h4 class="dj-name">{{dj.nickName}} <span class="sup-v"></span></h4>
+                    <p class="detail">排行：{{dj.rank}}</p>
+                </div>
+            </div>
+          </div>
+         </div>
       </div>
     </div>
   </div>
@@ -57,13 +68,14 @@ import singleSheet from '@components/single-sheet/SingleSheet';
 import userLogin from './userLogin/UserLogin';
 import singerCard from './singerCard/SingerCard';
 
-import { getHotTags, getPerosonalSheetList, getEnterSinger} from "@service/home";
+import { getHotTags, getPerosonalSheetList, getEnterSinger, getHotDj} from "@service/home";
 export default {
   data() {
     return {
       tags: [],
       songSheetList: [],
-      enterSingers: []
+      enterSingers: [],
+      hotDj: []
     }
   },
   created() {
@@ -73,17 +85,25 @@ export default {
             return x.position - y.position
           }).slice(0 , 5);
         }
-      );  
+      )
       getPerosonalSheetList().then(
         ({data:res}) => {
           this.songSheetList = res.result;
         }
-      ),
+      )
       getEnterSinger().then(
         ({data:res}) => {
           this.enterSingers = res.artists;
         }
-      );
+      )
+
+      getHotDj().then(
+        ({data:res}) => {
+          this.hotDj = res.data.list;
+          console.log( this.hotDj)
+        }
+      )
+
   },
   components: {
     wyyCarousel,
@@ -193,14 +213,67 @@ export default {
          margin-top: 15px;
         .btn {
           color: #333;
-          font-weight: 700;
           width: 210px;
           border-collapse: #ccc;
+          span {
+            font-weight: 700;
+          }
        }
        }
        
       }
+      .hot-dj {
+        margin-top: 20px;
+        .tit {
+          color: #333;
+          width: 210px;
+          margin: 0 auto 15px auto;
+          font-size: 12px;
+          height: 40px;
+          line-height:40px;
+          border-bottom: 1px solid #ccc;
+          font-weight: 700;
+        }
+        .dj-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .dj-card {
+            width: 210px;
+            height: 40px;
+            display: flex;
+            font-size: 12px;
+            margin-bottom: 10px;
+            .dj-img {
+                width: 40px;
+                height: 40px;
+            }
+            .info {
+                flex: 1;
+                padding-left: 14px;
+                .dj-name, .detail {
+                  width: 90%;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  color: #333;
+                }
+                .sup-v {
+                  display: inline-block;
+                  width: 11px;
+                  height: 13px;
+                  background: url('./../../assets/images/icon.png') no-repeat;
+                  background-position: 0 1px;
+                  font-size: 100%;
+                }
+                .detail {
+                  color: #666;
+                }
+            }
+        }
+      }
     }
+  }
   }
 }
 
