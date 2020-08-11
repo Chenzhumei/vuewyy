@@ -6,6 +6,7 @@ npm start
 ```
 
 # vuewyy
+- 使用vue-router + axios + vuex
 
 ## Project setup
 ```
