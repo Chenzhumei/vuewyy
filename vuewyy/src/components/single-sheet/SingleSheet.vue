@@ -7,20 +7,25 @@
         <i class="icon erji"></i>
         <span>{{sheet.playCount | playCount}}</span>
       </div>
-      <i class="icon play"></i>
+      <span class="icon play" @click="playSheet(sheet.id)"></span>
     </div>
   </a>
   <span class="dec">{{sheet.name}}</span>
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 
 export default {
   data() {
       return {
 
       }
+  },
+  methods: {
+    playSheet(sheetId: string) { //播放歌单
+      (this as any).$emit('onplay', sheetId);
+    }
   },
   created() {
 

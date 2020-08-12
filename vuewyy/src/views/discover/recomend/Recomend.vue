@@ -19,7 +19,10 @@
              </span>
           </div>
           <div class="sheet-list">
-             <single-sheet class="fl mb-30" v-for="(sheet,index) in songSheetList" :key="index" :sheet="sheet"></single-sheet>
+             <single-sheet class="fl mb-30" 
+                v-for="(sheet,index) in songSheetList" 
+                :key="index" :sheet="sheet"
+                @onplay = "onPlaySheet($event)"></single-sheet>
           </div>
         </div>
         <!-- 个性化推荐 需登录 -->
@@ -69,6 +72,7 @@ import userLogin from './userLogin/UserLogin';
 import singerCard from './singerCard/SingerCard';
 
 import { getHotTags, getPerosonalSheetList, getEnterSinger, getHotDj} from "@service/discover";
+import { getSongSheetDetail } from '@service/sheetservice';
 export default {
   data() {
     return {
@@ -104,6 +108,16 @@ export default {
         }
       )
 
+  },
+  methods: {
+    onPlaySheet(sheetId) {
+    
+     getSongSheetDetail(sheetId).then(
+       res => {
+          console.log('歌单详情：',res);
+       }
+     );
+    }
   },
   components: {
     wyyCarousel,

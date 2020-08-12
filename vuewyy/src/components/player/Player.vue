@@ -1,5 +1,11 @@
 <template>
  <div class="player">
+    <div class="lock">
+       <div class="left">
+           <span class="isLocked"></span>
+        </div>
+    </div>
+   <div class="hand"></div>
    <div class="wrap">
        <div class="btns">
            <span class="prev"></span>
@@ -17,7 +23,7 @@
             </div>
            <div class="bar">
                <div class="slider-wrap"></div>
-               <span class="time"></span>
+               <span class="time">00:00/00:00</span>
            </div>
        </div>
        <div class="oper">
@@ -48,7 +54,44 @@ export default {
 <style lang='scss' scoped>
 @import '@assets/scss/mixins.scss';
 .player {
+    position: fixed;
+    zoom: 1;
+    left: 0;
+    // bottom: -71px;
+    bottom: 0;
+    width: 100%;
     background-color: #292929;
+     .hand{
+    width: 100%;
+    height: 15px;
+    cursor: pointer;
+    opacity: .3;
+  }
+  .lock{
+    position: relative;
+    z-index: 1;
+    .left{
+      position: absolute;
+      top: -5px;
+      right: 15px;
+      @include icon('../../assets/images/playbar.png', 52px, 67px);
+      background-position: 0 -380px;
+      i{
+        margin: 6px 0 0 17px;
+         @include icon('../../assets/images/playbar.png', 18px, 18px);
+        background-position: -80px -380px;
+        &:hover{
+          background-position: -80px -400px;
+        }
+        &.locked{
+          background-position: -100px -380px;
+          &:hover{
+            background-position: -100px -400px;
+          }
+        }
+      }
+    }
+  }
     .wrap {
         position: relative;
         display: flex;
