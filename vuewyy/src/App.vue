@@ -5,16 +5,19 @@
        <router-view></router-view>
      </div>
      <footer-bottom></footer-bottom>
+     <player></player>
   </div>
 </template>
 
 <script>
 import headerTop from './components/header/Header'
 import footerBottom from './components/footer/Footer'
+import player from './components/player/Player'
 export default {
  components: {
       headerTop,
-      footerBottom
+      footerBottom,
+      player
   }
 }
  
