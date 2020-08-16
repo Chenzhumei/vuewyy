@@ -73,6 +73,7 @@ import singerCard from './singerCard/SingerCard';
 
 import { getHotTags, getPerosonalSheetList, getEnterSinger, getHotDj} from "@service/discover";
 import { getSongSheetDetail } from '@service/sheetservice';
+import { songSer } from '@service/songservice';
 export default {
   data() {
     return {
@@ -111,10 +112,16 @@ export default {
   },
   methods: {
     onPlaySheet(sheetId) {
-    
      getSongSheetDetail(sheetId).then(
        res => {
-          console.log('歌单详情：',res);
+         console.log('歌单详情：',res);
+         songSer.getSonList(res.data.playlist.tracks).then(
+           songlist => {
+            console.log('歌曲：',songlist);
+           }
+         );
+         
+         
        }
      );
     }

@@ -5,3 +5,8 @@ export function getSongSheetDetail(id: number) {
     const params = {id};
     return service.get('playlist/detail', { params })
 }
+
+
+export function playsheet(id: string) {
+
+}
