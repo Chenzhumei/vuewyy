@@ -22,7 +22,9 @@
                <ul  class="songs clearfix margin-bottom-none"></ul>
             </div>
            <div class="bar">
-               <div class="slider-wrap"></div>
+               <div class="slider-wrap">
+                 <slider></slider>
+               </div>
                <span class="time">00:00/00:00</span>
            </div>
        </div>
@@ -41,12 +43,14 @@
 </template>
 
 <script>
+import slider from './slider/Slider'
 export default {
   data() {
     return {
     }
   },
   components: {
+    slider
   }
 }
 </script>
